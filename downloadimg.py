@@ -35,4 +35,7 @@ images = client.fetchThreadImages(grpid)
 for image in islice(images, cnty):
     i = i + 1
     # print(image.large_preview_url)
-    urllib.request.urlretrieve(image.large_preview_url, str(path)+ "/" + str(i)+".jpg")
+    try:
+        urllib.request.urlretrieve(image.large_preview_url, str(path)+ "/" + str(i)+".jpg")
+    except Exception as er:
+        print(er)
